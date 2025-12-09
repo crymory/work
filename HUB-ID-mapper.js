@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         USB ID Mapper (Добавление маппинга)
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.3
 // @description  Добавляет значение из маппинга в скобках рядом с номером порта USB.
 // @author       Gemini
 // @match        https://panel.binotel.com/?module=*
