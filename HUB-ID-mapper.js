@@ -6,8 +6,8 @@
 // @author       Gemini
 // @match        https://panel.binotel.com/?module=*
 // @run-at       document-idle
-// @updateURL    https://raw.githubusercontent.com/crymory/work/main/usb-id-mapper.user.js
-// @downloadURL  https://raw.githubusercontent.com/crymory/work/main/usb-id-mapper.user.js
+// @updateURL    https://raw.githubusercontent.com/crymory/work/main/HUB-ID-mapper.js
+// @downloadURL  https://raw.githubusercontent.com/crymory/work/main/HUB-ID-mapper.js
 // ==/UserScript==
 
 
