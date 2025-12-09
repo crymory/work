@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         USB ID Mapper (Добавление маппинга)
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.0
 // @description  Добавляет значение из маппинга в скобках рядом с номером порта USB.
 // @author       Gemini
 // @match        https://panel.binotel.com/?module=*
@@ -50,21 +50,17 @@
                     const mappedValue = MAPPING[keyToMap];
 
                     if (mappedValue !== undefined) {
-                        // 4. Создаем стилизованный элемент с цветным фоном
-                        const badgeSpan = document.createElement('span');
-                        badgeSpan.textContent = mappedValue;
-                        badgeSpan.style.cssText = `
-                            display: inline-block;
-                            margin-left: 8px;
-                            padding: 4px 10px;
-                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                            color: white;
-                            border-radius: 12px;
-                            font-weight: bold;
-                            font-size: 0.9em;
-                            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-                        `;
-                        span.appendChild(badgeSpan);
+                        // 4. Если найдено, добавляем его в скобках к отображаемому тексту
+                        // В вашем примере это будет добавлено к "36" -> "36 (20)" (если 2.7 это опечатка и должно быть 1.2)
+                        // Если USB ID был 1.2.7, то ключ будет 2.7, и по вашему маппингу он не найдется.
+                        // Если USB ID был 12-1.2.7, то ключ будет 2.7, и по вашему маппингу он не найдется.
+
+                        // Если я возьму пример "1.2" из маппинга, то
+                        // MAPPING["1.2"] === 20.
+                        // Если USB ID = 12-1.1.2, то keyToMap будет "1.2", mappedValue будет 20.
+
+                        span.textContent += `<=>${mappedValue}`;
+
                     }
                     // Если mappedValue === undefined, то, согласно требованию, ничего не выводим.
                 }
